@@ -1,0 +1,28 @@
+.grid{
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    width: 500px;
+    height: 500px;
+   justify-content: space-between;
+   align-items: center;
+ 
+  
+
+}
+.Trun-Highlight,.winner{
+    color: aliceblue;
+}
+button{
+    background-color: brown;
+    width: fit-content ;
+    height: auto;
+    font-size: 18px;
+    padding: 10px 30px;
+    font-weight: 900;
+    box-shadow: 4px 4px red;
+    border:none;
+    border-radius: 10px;
+}
+button:active{
+    box-shadow: 0px 0px red;
+}
