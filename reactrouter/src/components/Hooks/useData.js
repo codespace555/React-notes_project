@@ -6,10 +6,17 @@ export default function useData(userID) {
     useEffect(() => {
         const url = `https://dummyjson.com/users/${userID}`
         fetch(url)
+        
     .then((response) => response.json())
-    .then((response) => setData(response))
+    
+    .then((response) => {
+     
+      
+      return setData(response)
+      
+    })
 
-      .catch((error) => console.log(`Error: ${error}`))
+      .catch((error) =>   error)
 
     },[userID])
 
