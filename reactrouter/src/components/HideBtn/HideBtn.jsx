@@ -5,7 +5,7 @@ export default function HideBtn({pathsToHide, buttonContent}) {
 
   const location = useLocation();
   const isButtonHidden = pathsToHide.includes(location.pathname);
-console.log(location)
+
   if (isButtonHidden) {
     return null;
   }
