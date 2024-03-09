@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux"
 import authService from "./appwrite/auth"
 import { login, logout } from "./store/authSlice"
 import { Footer, Header } from "./components"
+import { Audio } from 'react-loader-spinner'
 // import { Outlet } from "react-router-dom"
 
 function App() {
@@ -37,7 +38,18 @@ function App() {
     </>
   ):(<>
   
-  <div>Loading...</div>
+  <div>
+    <Audio
+  height="80"
+  width="80"
+  radius="9"
+  color=""
+  ariaLabel="loading"
+  wrapperStyle
+  wrapperClass
+/>
+
+</div>
   </>)
    
   
