@@ -18,15 +18,11 @@ function Select({ option, label, className = "", ...props }, ref) {
 text-black outline-none focus:bg-gray-50
 duration-200 border border-gray-200 w-full ${className}`}
       >
-{
-    option?.map((option) => (
-        <option key={option} value={option}>
+        {option?.map((option) => (
+          <option key={option} value={option}>
             {option}
-        </option>
-    ))
-}
-
-
+          </option>
+        ))}
       </select>
     </div>
   );

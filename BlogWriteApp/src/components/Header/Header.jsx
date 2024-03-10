@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
+  console.log(authStatus)
   const navigate = useNavigate();
   const naItem = [
     { name: "Home", slug: "/", active: true },

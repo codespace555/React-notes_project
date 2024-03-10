@@ -4,6 +4,7 @@ import Button from "./Button/Button"
 import Logo from "./Logo/Logo"
 import Container from "postcss/lib/container"
 import Logout from "./Header/Logout"
+import RTE from "./RTE"
 
 export {
     Header,
@@ -11,5 +12,6 @@ export {
     Button,
     Logo,
     Container,
-    Logout
+    Logout,
+    RTE
 }
