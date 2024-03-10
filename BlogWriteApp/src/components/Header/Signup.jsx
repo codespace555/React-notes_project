@@ -6,6 +6,7 @@ import authService from "../../appwrite/auth";
 import { login } from "../../store/authSlice";
 import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
+import  Input  from "./Input";
 
 function Signup() {
   const [error, setError] = useState("");
@@ -85,7 +86,10 @@ function Signup() {
               {...register("password", { required: true })}
             />
           </div>
-          <Button type="submit" className="w-full" btntext="Signup"/>
+          <Button
+                type="submit"
+                className="w-full"
+                >Sign up</Button>
            
           
         </form>

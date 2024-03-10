@@ -1,7 +1,7 @@
-import conf from "../conf/conf";
 import { Client, ID, Storage, Query } from "appwrite";
+import conf from "../conf/conf";
 
-export class Storage {
+export class Storageservice {
   client = new Client();
   databases;
   bucket;
@@ -44,6 +44,6 @@ getFilePreview(fileId) {
 
 }
 
-const storage = new Storage();
+const storage = new Storageservice();
 
 export default storage;

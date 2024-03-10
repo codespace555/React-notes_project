@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../appwrite/auth";
-import { login as authLogin } from "../store/authSlice";
+import { login as authLogin } from "../../store/authSlice"
 import { Button, Logo } from "../index";
 import Input from "./Input";
 
@@ -76,7 +76,9 @@ function Login() {
               />
             </div>
             <Button
-            type="submit" className="w-full" btntext="Sign in"/>
+                type="submit"
+                className="w-full"
+                >Sign in</Button>
           </form>
         </div>
       </div>

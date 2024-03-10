@@ -18,7 +18,11 @@ function Logout() {
       .catch((error) => console.warn("Error logging out: ", error));
   };
   return <>
-<Button btntext={Logout}/>
+ <Button
+                type="submit"
+                className="w-full"
+                onClick={logoutHandler}
+                >Logout</Button>
 
   </>;
 }
