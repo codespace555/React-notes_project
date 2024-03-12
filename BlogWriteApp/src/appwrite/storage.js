@@ -16,7 +16,7 @@ export class Storageservice {
     try {
       return await this.bucket.createFile(
         conf.appwriteBucketId,
-        ID.unique(10), // File name
+        ID.unique(), // File name
         file
       );
     } catch (error) {
@@ -37,7 +37,7 @@ export class Storageservice {
 getFilePreview(fileId) {
   return this.bucket.getFilePreview(
     conf.appwriteBucketId,
-    fileId,
+    fileId
   )
   }
 

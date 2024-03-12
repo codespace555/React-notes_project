@@ -6,7 +6,7 @@ import authService from "../../appwrite/auth";
 import { login } from "../../store/authSlice";
 import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
-import  Input  from "./Input";
+import Input from "./Input";
 
 function Signup() {
   const [error, setError] = useState("");
@@ -20,7 +20,7 @@ function Signup() {
       if (userData) {
         const userData = await authService.getCurrentUser();
         if (userData) {
-          dispatch(login(userData));
+          dispatch(login(login(userData)));
           navigate("/");
         }
       }
@@ -86,12 +86,9 @@ function Signup() {
               {...register("password", { required: true })}
             />
           </div>
-          <Button
-                type="submit"
-                className="w-full"
-                >Sign up</Button>
-           
-          
+          <Button type="submit" className="w-full">
+            Sign up
+          </Button>
         </form>
       </div>
     </>

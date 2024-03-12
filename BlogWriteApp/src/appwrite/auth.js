@@ -44,16 +44,10 @@ export class AuthService {
     } catch (error) {
       console.log("appwrite server:: getuser:: error ", error);
     }
-  }
-
-  async getCurrentUser() {
-    try {
-      return await this.account.get();
-    } catch (error) {
-      console.log("appwrite issue in  getCurrentUser", error);
-    }
     return null;
   }
+
+ 
 
   async logout() {
     try {

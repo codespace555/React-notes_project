@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {  Container } from '../index'
+import {  Container, PostCard } from '../index'
 import service from '../../appwrite/config'
 
 

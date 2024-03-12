@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../appwrite/auth";
-import { login as authLogin } from "../../store/authSlice"
+import { login as authLogin } from "../../store/authSlice";
 import { Button, Logo } from "../index";
 import Input from "./Input";
 
@@ -13,6 +13,7 @@ function Login() {
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
   const login = async (data) => {
+    setError("");
     try {
       const session = await authService.login(data);
       if (session) {
@@ -38,7 +39,7 @@ function Login() {
           </span>
           <h2>Sign in to your account</h2>
           <p className="mt-2 text-center text-base text-black/60">
-            Don&apos:t have an account?
+            Don't have an account?
             <Link
               to="/signup"
               className="font-medium hover:text-blue-500 transition duration-150 ease-in-out"
@@ -69,16 +70,15 @@ function Login() {
             </div>
             <div className="space-y-1">
               <Input
-              label="Password"
+                label="Password"
                 type="password"
                 placeHolder="Enter Your password"
                 {...register("password", { required: true })}
               />
             </div>
-            <Button
-                type="submit"
-                className="w-full"
-                >Sign in</Button>
+            <Button type="submit" className="w-full">
+              Sign in
+            </Button>
           </form>
         </div>
       </div>

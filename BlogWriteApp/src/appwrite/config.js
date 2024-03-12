@@ -14,9 +14,9 @@ export class Service {
     this.databases = new Databases(this.client);
   }
 
-  async createPost({ title, content, slug, featuredImage, status, userId }) {
+  async createPost({ title, slug, content,  featuredImage, status, userId }) {
     try {
-      await this.databases.createDocument(
+     return  await this.databases.createDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug,
@@ -27,9 +27,11 @@ export class Service {
           status,
           userId,
         }
+
       );
     } catch (error) {
       console.log("Appwrite issue in create  post", error);
+      console.log(featuredImage)
     }
   }
 
@@ -37,6 +39,7 @@ export class Service {
     return await this.databases.updateDocument(
       conf.appwriteDatabaseId,
       conf.appwriteCollectionId,
+      slug,
       {
         title,
         content,
@@ -69,6 +72,7 @@ export class Service {
       );
     } catch (error) {}
     console.log("Appwrite serive :: getPost :: error", error);
+    return false
   }
 
   async getPosts(queries = [Query.equal("status", "active")]) {
@@ -76,10 +80,11 @@ export class Service {
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        queries
+        queries,
       );
     } catch (error) {
       console.log("Appwrite serive :: getPosts :: error", error);
+      return false
     }
   }
  

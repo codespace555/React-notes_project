@@ -19,7 +19,7 @@ function EditPost() {
         }else{
             navigate("/")
         }
-    })
+    },[slug, navigate])
   return posts ? (
     <div className='py-8'>
         <Container>

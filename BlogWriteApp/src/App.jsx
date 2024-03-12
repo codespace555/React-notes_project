@@ -28,8 +28,8 @@ console.log("app.jsx" ,error)
  },[])
   return !loading?(
     <>
-    <div className="text-xl flex justify-center flex-wrap h-screen bg-slate-700 w-full">
-      <div className="block">
+    <div className="text-xl flex justify-center flex-wrap h-screen bg-slate-700 w-full ">
+      <div className="">
 <Header />
 <main>
   <Outlet />

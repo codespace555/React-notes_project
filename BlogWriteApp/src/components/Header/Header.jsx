@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Logout, Logo, Button } from "../index";
+import { Container, Logout, Logo } from "../index";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -39,11 +39,11 @@ function Header() {
               <Logo />
             </Link>
           </div>
-        </nav>
+        
         <ul className="flex ml-auto">
           {naItem.map((item) =>
             item.active ? (
-              <li key={item.name} onClick={navigate}>
+              <li key={item.name} >
                  <button
                 onClick={() => navigate(item.slug)}
                 className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
@@ -57,6 +57,7 @@ function Header() {
             </li>
           )}
         </ul>
+        </nav>
       </Container>
     </header>
   );

@@ -1,10 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import  authService from "../../appwrite/auth";
+import authService from "../../appwrite/auth";
 import { logout } from "../../store/authSlice";
 import Button from "../Button/Button";
-
-
 
 function Logout() {
   const dispatch = useDispatch();
@@ -17,14 +15,13 @@ function Logout() {
       })
       .catch((error) => console.warn("Error logging out: ", error));
   };
-  return <>
- <Button
-                type="submit"
-                className="w-full"
-                onClick={logoutHandler}
-                >Logout</Button>
-
-  </>;
+  return (
+    <>
+      <Button type="submit" className="w-full" onClick={logoutHandler}>
+        Logout
+      </Button>
+    </>
+  );
 }
 
 export default Logout;
