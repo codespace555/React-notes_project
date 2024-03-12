@@ -24,15 +24,17 @@ function Login() {
         }
       }
     } catch (error) {
-      setError("Something wets wrong are not valid");
+      setError("Something went wrong are not valid");
     }
   };
 
   return (
     <>
-      <div className="flex items-center justify-center w-full">
+    
+      <div className="flex items-center justify-center w-full flex-wrap p-5 bg-[url('./blog-blogging-homepage-social-media-600nw-381746308.webp')] bg-center bg-no-repeat bg-cover h-screen bg-scroll  bg-black/25">
+      
         <div
-          className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
+          className={`mx-auto w-full max-w-lg bg-gray-300 rounded-lg p-10 border border-black/10`}
         >
           <span className="inline-block">
             <Logo />
@@ -42,7 +44,7 @@ function Login() {
             Don't have an account?
             <Link
               to="/signup"
-              className="font-medium hover:text-blue-500 transition duration-150 ease-in-out"
+              className="font-medium hover:text-blue-900 text-blue-500 transition duration-150 ease-in-out"
             >
               {" "}
               Sign up{" "}
@@ -76,7 +78,7 @@ function Login() {
                 {...register("password", { required: true })}
               />
             </div>
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full mt-5">
               Sign in
             </Button>
           </form>

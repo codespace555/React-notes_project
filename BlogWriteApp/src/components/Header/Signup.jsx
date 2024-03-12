@@ -31,9 +31,9 @@ function Signup() {
 
   return (
     <>
-      <div className="flex items-center justify-center">
+     
         <div
-          className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
+          className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10 m-15`}
         >
           <span className="inline-block">
             <Logo />
@@ -43,16 +43,14 @@ function Signup() {
             Already have an account?
             <Link
               to="/login"
-              className="font-medium hover:text-blue-500 transition duration-150 ease-in-out"
+              className="font-medium hover:text-blue-600 text-blue-500 transition duration-150 ease-in-out"
             >
               {" "}
               Login{" "}
             </Link>
             .
           </p>
-        </div>
-
-        {error && <p className=" text-red-500 mt-80 text-center">{error}</p>}
+          {error && <p className=" text-red-500 mt-80 text-center">{error}</p>}
         <form onSubmit={handleSubmit(signup)} className="mt-8">
           <div className="space-y-5">
             <Input
@@ -86,11 +84,14 @@ function Signup() {
               {...register("password", { required: true })}
             />
           </div>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full mt-5">
             Sign up
           </Button>
         </form>
-      </div>
+        </div>
+
+        
+     
     </>
   );
 }
