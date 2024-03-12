@@ -17,7 +17,7 @@ function Logout() {
   };
   return (
     <>
-      <Button type="submit" className="w-full" onClick={logoutHandler}>
+      <Button type="submit" className="w-full px-8" onClick={logoutHandler}>
         Logout
       </Button>
     </>

@@ -4,7 +4,7 @@ import service from '../../appwrite/config'
 import { Container, PostForm } from "../index"
 
 function EditPost() {
-    const [posts,setPost] = useState([])
+    const [posts,setPost] = useState(null)
     const {slug} = useParams()
     const navigate= useNavigate()
 
@@ -14,6 +14,7 @@ function EditPost() {
             .then((post) => {
                 if(post){
                     setPost(post)
+                    console.log(post)
                 }
             })
         }else{

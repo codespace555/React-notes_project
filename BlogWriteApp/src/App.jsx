@@ -28,8 +28,8 @@ console.log("app.jsx" ,error)
  },[])
   return !loading?(
     <>
-    <div className="text-xl flex justify-center flex-wrap h-screen bg-slate-700 w-full ">
-      <div className="">
+    <div className="text-xl flex justify-center flex-wrap h-auto bg-slate-700 w-full ">
+      <div className="w-full">
 <Header />
 <main>
   <Outlet />
@@ -41,7 +41,7 @@ console.log("app.jsx" ,error)
     </>
   ):(<>
   
-  <div>
+  <div className="text-xl flex justify-center items-center flex-wrap h-screen bg-slate-700 w-full">
     <Audio
   height="80"
   width="80"

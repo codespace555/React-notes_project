@@ -4,7 +4,7 @@ import service from '../../appwrite/config'
 
 function AllPost() {
     const [posts,setPost] = useState([])
-    useEffect(()=>{
+  
         service.getPosts([])
         .then((posts) => {
             if (posts) {
@@ -12,7 +12,7 @@ function AllPost() {
                 
             }
         })
-    })
+ 
    
   return (
     <div className='w-full py-8'>
@@ -21,8 +21,8 @@ function AllPost() {
 {
     posts.map((post)=>(
 
-        <div  key={post.$id}>
-            <PostCard post ={{...post}} />
+        <div  key={post.$id} className='p-2 w-1/4'>
+            <PostCard {...post}  />
         </div>
     ))
     }

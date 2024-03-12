@@ -24,7 +24,7 @@ function Login() {
         }
       }
     } catch (error) {
-      setError(error.message);
+      setError("Something wets wrong are not valid");
     }
   };
 
@@ -49,7 +49,7 @@ function Login() {
             </Link>
             .
           </p>
-          {error && <p className=" text-red-500 mt-80 text-center">{error}</p>}
+          {error && <p className=" text-red-500  text-center">{error}</p>}
           <form onSubmit={handleSubmit(login)} className="mt-8">
             <div className="space-y-5">
               <Input

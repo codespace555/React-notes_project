@@ -22,35 +22,46 @@ function PostForm({ post }) {
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
 
-  const submit = async (data) => {
-    if (post) {
+
+  const editpost = async(data) => {
+
       const file = data.image[0]
         ? await storage.uploadFile(data.image[0])
         : null;
       if (file) {
-        storage.deleteFile(post.featuredImage);
+        storage.deleteFile(post.featuredimage);
       }
       const dbPost = await service.updatePost(post.$id, {
         ...data,
-        featuredImage: file ? file.$id : undefined,
+        featuredimage: file ? file.$id : undefined,
       });
+      console.log(dbPost);
       if (dbPost) {
         navigate(`/post/${dbPost.$id}`);
       }
-    } else {
+  }
+
+  const addPost = async (data) => {
+    console.log("addPost")
       const file = await storage.uploadFile(data.image[0]);
       if (file) {
         const fileId = file.$id;
-        data.featuredImage = fileId;
+        data.featuredimage = fileId;
+        console.log(fileId);
         const dbPost = await service.createPost({
           ...data,
           userId: userData.$id,
         });
+        console.log({ ...data });
+        console.log(dbPost);
+        console.log(userData.$id);
+
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`);
         }
       }
-    }
+      
+    
   };
 
   const slugTransform = useCallback((value) => {
@@ -75,7 +86,7 @@ function PostForm({ post }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+      <form onSubmit={handleSubmit(post?editpost:addPost)} className="flex flex-wrap">
         <div className="w-2/3 px-2">
           <Input
             label="Title :"
@@ -107,12 +118,12 @@ function PostForm({ post }) {
             type="file"
             className="mb-4"
             accept="image/png, image/jpg, image/jpeg, image/gif"
-            {...register("image", { required: !post })}
+            {...register("image", { required: true })}
           />
           {post && (
             <div className="w-full mb-4">
               <img
-                src={storage.getFilePreview(post.featuredImage)}
+                src={storage.getFilePreview(post.featuredimage)}
                 alt={post.title}
                 className="rounded-lg"
               />

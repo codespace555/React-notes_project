@@ -1,7 +1,7 @@
 
 import conf from "../conf/conf";
 
-import { Client, ID, Databases,  Query } from "appwrite";
+import { Client, ID, Databases, Query } from "appwrite";
 
 export class Service {
   client = new Client();
@@ -14,16 +14,16 @@ export class Service {
     this.databases = new Databases(this.client);
   }
 
-  async createPost({ title, slug, content,  featuredImage, status, userId }) {
+  async createPost({ title, slug, content, featuredimage, status, userId }) {
     try {
-     return  await this.databases.createDocument(
+      return await this.databases.createDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug,
         {
           title,
           content,
-          featuredImage,
+          featuredimage,
           status,
           userId,
         }
@@ -31,11 +31,11 @@ export class Service {
       );
     } catch (error) {
       console.log("Appwrite issue in create  post", error);
-      console.log(featuredImage)
+      console.log(userId)
     }
   }
 
-  async updatePost(slug, { title, content, featuredImage, status }) {
+  async updatePost(slug, { title, content, featuredimage, status }) {
     return await this.databases.updateDocument(
       conf.appwriteDatabaseId,
       conf.appwriteCollectionId,
@@ -43,7 +43,7 @@ export class Service {
       {
         title,
         content,
-        featuredImage,
+        featuredimage,
         status,
       }
     );
@@ -70,7 +70,7 @@ export class Service {
         conf.appwriteCollectionId,
         slug
       );
-    } catch (error) {}
+    } catch (error) { }
     console.log("Appwrite serive :: getPost :: error", error);
     return false
   }
@@ -87,7 +87,7 @@ export class Service {
       return false
     }
   }
- 
+
 }
 const service = new Service();
 
